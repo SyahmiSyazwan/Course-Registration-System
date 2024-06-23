@@ -1,0 +1,3 @@
+SECR1213,Network Communications,30,40,
+SECD2523,Database,30,35,
+SECJ2203,Software Engineering,35,40,

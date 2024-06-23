@@ -28,6 +28,7 @@ public class AcademicOffice extends User {
         } else {
             for (Course course : courses) {
                 System.out.println(course.getCourseCode() + ": " + course.getCourseName());
+                System.out.println("----------------------------------------------------");
             }
         }
     }

@@ -75,6 +75,7 @@ public class LecturerService {
                     lecturer.viewTeachingCourses();
                     break;
                 case 4:
+                    ConsoleUtil.clearScreen();
                     return;
                 default:
                     System.out.println("Invalid option. Please try again.");

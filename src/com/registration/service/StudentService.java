@@ -82,6 +82,7 @@ public class StudentService {
                     }
                     break;
                 case 5:
+                    ConsoleUtil.clearScreen();
                     return;
                 default:
                     System.out.println("Invalid option. Please try again.");

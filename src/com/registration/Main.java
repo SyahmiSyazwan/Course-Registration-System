@@ -34,23 +34,23 @@ public class Main {
 
         AcademicOffice academicOffice = new AcademicOffice("AO01", "Main Office");
 
-        // Add 5 students if the list is empty
-        if (students.isEmpty()) {
-            students.add(new Student("S01", "Alice"));
-            students.add(new Student("S02", "Bob"));
-            students.add(new Student("S03", "Charlie"));
-            students.add(new Student("S04", "Diana"));
-            students.add(new Student("S05", "Edward"));
-        }
+        // // Add 5 students if the list is empty
+        // if (students.isEmpty()) {
+        //     students.add(new Student("S01", "Alice"));
+        //     students.add(new Student("S02", "Bob"));
+        //     students.add(new Student("S03", "Charlie"));
+        //     students.add(new Student("S04", "Diana"));
+        //     students.add(new Student("S05", "Edward"));
+        // }
 
-        // Add 5 lecturers if the list is empty
-        if (lecturers.isEmpty()) {
-            lecturers.add(new Lecturer("L01", "Dr. Smith"));
-            lecturers.add(new Lecturer("L02", "Dr. Johnson"));
-            lecturers.add(new Lecturer("L03", "Dr. Brown"));
-            lecturers.add(new Lecturer("L04", "Dr. Jones"));
-            lecturers.add(new Lecturer("L05", "Dr. Miller"));
-        }
+        // // Add 5 lecturers if the list is empty
+        // if (lecturers.isEmpty()) {
+        //     lecturers.add(new Lecturer("L01", "Dr. Smith"));
+        //     lecturers.add(new Lecturer("L02", "Dr. Johnson"));
+        //     lecturers.add(new Lecturer("L03", "Dr. Brown"));
+        //     lecturers.add(new Lecturer("L04", "Dr. Jones"));
+        //     lecturers.add(new Lecturer("L05", "Dr. Miller"));
+        // }
 
         // Create service instances
         StudentService studentService = new StudentService(students, courses);
@@ -59,9 +59,8 @@ public class Main {
 
         // Create a scanner for user input
         Scanner scanner = new Scanner(System.in);
-
+        ConsoleUtil.clearScreen(); // Clear the console
         while (true) {
-            //ConsoleUtil.clearScreen(); // Clear the console
             System.out.println("Welcome to the Course Registration System");
             System.out.println("1. Student");
             System.out.println("2. Academic Office");
