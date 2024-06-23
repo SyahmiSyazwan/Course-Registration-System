@@ -2,6 +2,7 @@ package com.registration.service;
 
 import com.registration.entity.Course;
 import com.registration.entity.Lecturer;
+import com.registration.util.ConsoleUtil;
 
 import java.util.List;
 import java.util.Scanner;
@@ -23,11 +24,13 @@ public class LecturerService {
 
         Lecturer lecturer = findLecturerById(lecturerId);
         if (lecturer == null) {
-            System.out.println("Lecturer not found.");
+            System.out.println("Lecturer not found.\n\n");
             return;
         }
 
         while (true) {
+            ConsoleUtil.clearScreen();
+            System.out.println("Welcome back, " + lecturer.getName() + ": " + lecturer.getId());
             System.out.println("Lecturer Menu");
             System.out.println("1. Register to teach course");
             System.out.println("2. Drop taught course");
@@ -39,6 +42,7 @@ public class LecturerService {
 
             switch (choice) {
                 case 1:
+                    ConsoleUtil.clearScreen();
                     System.out.print("Enter course code to teach: ");
                     String courseCodeToTeach = scanner.nextLine();
                     Course courseToTeach = findCourseByCode(courseCodeToTeach);
@@ -54,6 +58,7 @@ public class LecturerService {
                     }
                     break;
                 case 2:
+                    ConsoleUtil.clearScreen();
                     lecturer.viewTeachingCourses();
                     System.out.print("Enter course code to drop: ");
                     String courseCodeToDrop = scanner.nextLine();
@@ -66,6 +71,7 @@ public class LecturerService {
                     }
                     break;
                 case 3:
+                    ConsoleUtil.clearScreen();
                     lecturer.viewTeachingCourses();
                     break;
                 case 4:

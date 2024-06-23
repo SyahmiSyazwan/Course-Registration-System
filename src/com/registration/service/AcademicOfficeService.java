@@ -2,6 +2,7 @@ package com.registration.service;
 
 import com.registration.entity.AcademicOffice;
 import com.registration.entity.Course;
+import com.registration.util.ConsoleUtil;
 
 import java.util.List;
 import java.util.Scanner;
@@ -19,6 +20,7 @@ public class AcademicOfficeService {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            //ConsoleUtil.clearScreen();
             System.out.println("Academic Office Menu");
             System.out.println("1. Create course");
             System.out.println("2. Close course");
@@ -31,6 +33,7 @@ public class AcademicOfficeService {
 
             switch (choice) {
                 case 1:
+                    ConsoleUtil.clearScreen();
                     System.out.print("Enter course code: ");
                     String courseCode = scanner.nextLine();
                     System.out.print("Enter course name: ");
@@ -43,6 +46,11 @@ public class AcademicOfficeService {
                     System.out.println("Course created successfully.");
                     break;
                 case 2:
+                    ConsoleUtil.clearScreen();
+                    if (courses.size() == 0) {
+                        System.out.println("No course has been created\n\n");
+                        break;
+                    }
                     System.out.print("Enter course code to close: ");
                     String courseCodeToClose = scanner.nextLine();
                     Course courseToClose = findCourseByCode(courseCodeToClose);
@@ -54,9 +62,12 @@ public class AcademicOfficeService {
                     }
                     break;
                 case 3:
+                    ConsoleUtil.clearScreen();
                     academicOffice.displayCreatedCourses(courses);
                     break;
                 case 4:
+                    ConsoleUtil.clearScreen();
+                    academicOffice.displayCreatedCourses(courses);
                     System.out.print("Enter course code to set limits: ");
                     String courseCodeToSetLimits = scanner.nextLine();
                     Course courseToSetLimits = findCourseByCode(courseCodeToSetLimits);

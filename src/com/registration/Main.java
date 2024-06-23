@@ -7,6 +7,7 @@ import com.registration.entity.Student;
 import com.registration.service.AcademicOfficeService;
 import com.registration.service.LecturerService;
 import com.registration.service.StudentService;
+import com.registration.util.ConsoleUtil;
 import com.registration.util.SerializationUtil;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class Main {
     private static final String LECTURERS_FILE = "lecturers.txt";
     private static final String COURSES_FILE = "courses.txt";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         List<Student> students = new ArrayList<>();
         List<Lecturer> lecturers = new ArrayList<>();
         List<Course> courses = new ArrayList<>();
@@ -60,6 +61,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            //ConsoleUtil.clearScreen(); // Clear the console
             System.out.println("Welcome to the Course Registration System");
             System.out.println("1. Student");
             System.out.println("2. Academic Office");
@@ -70,12 +72,15 @@ public class Main {
 
             switch (choice) {
                 case 1:
+                    ConsoleUtil.clearScreen(); // Clear the console
                     studentService.showStudentMenu();
                     break;
                 case 2:
+                    ConsoleUtil.clearScreen(); // Clear the console
                     academicOfficeService.showAcademicOfficeMenu();
                     break;
                 case 3:
+                    ConsoleUtil.clearScreen(); // Clear the console
                     lecturerService.showLecturerMenu();
                     break;
                 case 4:
@@ -89,6 +94,7 @@ public class Main {
                     }
                     return;
                 default:
+                    ConsoleUtil.clearScreen(); // Clear the console
                     System.out.println("Invalid option. Please try again.");
             }
         }

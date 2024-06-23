@@ -8,7 +8,8 @@ public class AcademicOffice extends User {
         super(id, name);
     }
 
-    public void createCourse(String courseCode, String courseName, int minStudents, int maxStudents, List<Course> courses) {
+    public void createCourse(String courseCode, String courseName, int minStudents, int maxStudents,
+            List<Course> courses) {
         courses.add(new Course(courseCode, courseName, minStudents, maxStudents));
     }
 
@@ -22,8 +23,12 @@ public class AcademicOffice extends User {
     }
 
     public void displayCreatedCourses(List<Course> courses) {
-        for (Course course : courses) {
-            System.out.println(course.getCourseCode() + ": " + course.getCourseName());
+        if (courses.size() == 0) {
+            System.out.println("No course has been created\n\n");
+        } else {
+            for (Course course : courses) {
+                System.out.println(course.getCourseCode() + ": " + course.getCourseName());
+            }
         }
     }
 }

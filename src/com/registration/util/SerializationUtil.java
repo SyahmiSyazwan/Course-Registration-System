@@ -69,7 +69,7 @@ public class SerializationUtil {
         return lecturers;
     }
 
-    public static List<Course> loadCourses(String fileName, List<Student> students, List<Lecturer> lecturers) throws IOException {
+    public static List<Course> loadCourses(String fileName, List<Student> students, List<Lecturer> lecturers) throws Exception {
         List<Course> courses = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
