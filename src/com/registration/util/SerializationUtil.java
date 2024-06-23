@@ -102,4 +102,17 @@ public class SerializationUtil {
         }
         return courses;
     }
+    public static void saveCoursesToFile(List<Course> courses, String fileName) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(courses);
+        }
+    }
+
+    // Load courses from file
+    @SuppressWarnings("unchecked")
+    public static List<Course> loadCoursesFromFile(String fileName) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            return (List<Course>) ois.readObject();
+        }
+    }
 }

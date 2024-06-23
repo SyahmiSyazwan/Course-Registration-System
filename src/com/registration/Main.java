@@ -27,7 +27,7 @@ public class Main {
         try {
             students = SerializationUtil.loadStudents(STUDENTS_FILE);
             lecturers = SerializationUtil.loadLecturers(LECTURERS_FILE);
-            courses = SerializationUtil.loadCourses(COURSES_FILE, students, lecturers);
+            courses = SerializationUtil.loadCoursesFromFile(COURSES_FILE);
         } catch (IOException e) {
             System.out.println("Error loading data: " + e.getMessage());
         }
@@ -61,6 +61,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ConsoleUtil.clearScreen(); // Clear the console
         while (true) {
+
             System.out.println("Welcome to the Course Registration System");
             System.out.println("1. Student");
             System.out.println("2. Academic Office");
@@ -86,7 +87,7 @@ public class Main {
                     try {
                         SerializationUtil.saveStudents(students, STUDENTS_FILE);
                         SerializationUtil.saveLecturers(lecturers, LECTURERS_FILE);
-                        SerializationUtil.saveCourses(courses, COURSES_FILE);
+                        SerializationUtil.saveCoursesToFile(courses, COURSES_FILE);
                         System.out.println("Data saved. Exiting...");
                     } catch (IOException e) {
                         System.out.println("Error saving data: " + e.getMessage());

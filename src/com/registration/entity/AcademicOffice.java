@@ -3,6 +3,8 @@ package com.registration.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.registration.util.ConsoleUtil;
+
 public class AcademicOffice extends User {
     public AcademicOffice(String id, String name) {
         super(id, name);
@@ -17,19 +19,22 @@ public class AcademicOffice extends User {
         course.closeCourse();
     }
 
+    public void openCourse(Course course) {
+        course.openCourse();
+    }
+
     public void setCourseLimits(Course course, int minStudents, int maxStudents) {
         course.setMinStudents(minStudents);
         course.setMaxStudents(maxStudents);
     }
 
     public void displayCreatedCourses(List<Course> courses) {
-        if (courses.size() == 0) {
-            System.out.println("No course has been created\n\n");
-        } else {
-            for (Course course : courses) {
-                System.out.println(course.getCourseCode() + ": " + course.getCourseName());
-                System.out.println("----------------------------------------------------");
-            }
+        ConsoleUtil.clearScreen(); // Clear the console
+        System.out.println("Created Courses:");
+        for (Course course : courses) {
+            String status = course.isOpen() ? "Open" : "Closed";
+            System.out.printf("Course Code: %s, Course Name: %s, Status: %s\n", course.getCourseCode(), course.getCourseName(), status);
         }
+        System.out.println("Press Enter to continue...");
     }
 }

@@ -20,13 +20,14 @@ public class AcademicOfficeService {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            //ConsoleUtil.clearScreen();
+            // ConsoleUtil.clearScreen();
             System.out.println("Academic Office Menu");
             System.out.println("1. Create course");
             System.out.println("2. Close course");
             System.out.println("3. Display created courses");
             System.out.println("4. Set course limits");
-            System.out.println("5. Exit");
+            System.out.println("5. Open course");
+            System.out.println("6. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -62,8 +63,10 @@ public class AcademicOfficeService {
                     }
                     break;
                 case 3:
-                    ConsoleUtil.clearScreen();
+                    // ConsoleUtil.clearScreen();
                     academicOffice.displayCreatedCourses(courses);
+                    scanner.nextLine(); // Pause
+                    scanner.nextLine();
                     break;
                 case 4:
                     ConsoleUtil.clearScreen();
@@ -83,6 +86,22 @@ public class AcademicOfficeService {
                     }
                     break;
                 case 5:
+                    ConsoleUtil.clearScreen();
+                    if (courses.size() == 0) {
+                        System.out.println("No course has been created\n\n");
+                        break;
+                    }
+                    System.out.print("Enter course code to open: ");
+                    String courseCodeToOpen = scanner.nextLine();
+                    Course courseToOpen = findCourseByCode(courseCodeToOpen);
+                    if (courseToOpen != null) {
+                        academicOffice.closeCourse(courseToOpen);
+                        System.out.println("Course open successfully.");
+                    } else {
+                        System.out.println("Course not found.");
+                    }
+                    break;
+                case 6:
                     ConsoleUtil.clearScreen();
                     return;
                 default:

@@ -2,6 +2,7 @@ package com.registration.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.registration.util.ConsoleUtil;
 
 public class Student extends User {
     private List<Course> registeredCourses;
@@ -34,11 +35,14 @@ public class Student extends User {
         }
     }
 
+    
     public void viewAvailableCourses(List<Course> courses) {
+        ConsoleUtil.clearScreen(); // Clear the console
+        System.out.println("Available Courses:");
         for (Course course : courses) {
-            if (course.isOpen() && !registeredCourses.contains(course)) {
-                System.out.println(course.getCourseCode() + ": " + course.getCourseName());
-            }
+            String status = course.isOpen() ? "Open" : "Closed";
+            System.out.printf("Course Code: %s, Course Name: %s, Status: %s\n", course.getCourseCode(), course.getCourseName(), status);
         }
+        System.out.println("Press Enter to continue...");
     }
 }

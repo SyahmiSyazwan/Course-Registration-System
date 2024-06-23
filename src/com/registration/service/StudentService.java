@@ -25,7 +25,7 @@ public class StudentService {
         Student student = findStudentById(studentId);
         if (student == null) {
             System.out.println("Student not found.\n\n");
-            
+
             return;
         }
 
@@ -46,15 +46,21 @@ public class StudentService {
                 case 1:
                     ConsoleUtil.clearScreen();
                     student.viewAvailableCourses(courses);
+                    scanner.nextLine(); // Pause
+                    scanner.nextLine();
                     System.out.print("Enter course code to register: ");
                     String courseCodeToRegister = scanner.nextLine();
                     Course courseToRegister = findCourseByCode(courseCodeToRegister);
                     if (courseToRegister != null) {
-                        try {
-                            student.registerCourse(courseToRegister);
-                            System.out.println("Course registered successfully.");
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
+                        if (!courseToRegister.isOpen()) {
+                            try {
+                                student.registerCourse(courseToRegister);
+                                System.out.println("Course registered successfully.");
+                                scanner.nextLine(); // Pause
+                                scanner.nextLine();
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
                         }
                     } else {
                         System.out.println("Course not found.");
