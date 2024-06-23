@@ -17,6 +17,10 @@ public class AcademicOffice extends User {
         course.closeCourse();
     }
 
+    public void openCourse(Course course) {
+        course.openCourse();
+    }
+
     public void setCourseLimits(Course course, int minStudents, int maxStudents) {
         course.setMinStudents(minStudents);
         course.setMaxStudents(maxStudents);
@@ -26,9 +30,11 @@ public class AcademicOffice extends User {
         if (courses.size() == 0) {
             System.out.println("No course has been created\n\n");
         } else {
+            System.out.println("Created Courses:");
             for (Course course : courses) {
-                System.out.println(course.getCourseCode() + ": " + course.getCourseName());
-                System.out.println("----------------------------------------------------");
+                String status = course.isOpen() ? "Open" : "Closed";
+                System.out.printf("Course Code: %s, Course Name: %s, Status: %s\n", course.getCourseCode(),
+                        course.getCourseName(), status);
             }
         }
     }

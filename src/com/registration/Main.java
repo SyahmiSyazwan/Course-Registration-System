@@ -24,34 +24,36 @@ public class Main {
         List<Student> students = new ArrayList<>();
         List<Lecturer> lecturers = new ArrayList<>();
         List<Course> courses = new ArrayList<>();
+
+
         try {
             students = SerializationUtil.loadStudents(STUDENTS_FILE);
             lecturers = SerializationUtil.loadLecturers(LECTURERS_FILE);
-            courses = SerializationUtil.loadCourses(COURSES_FILE, students, lecturers);
+            courses = SerializationUtil.loadCourses(COURSES_FILE);
         } catch (IOException e) {
             System.out.println("Error loading data: " + e.getMessage());
         }
 
         AcademicOffice academicOffice = new AcademicOffice("AO01", "Main Office");
+        
+        // Add 5 students if the list is empty
+        if (students.isEmpty()) {
+            students.add(new Student("S01", "Alice"));
+            students.add(new Student("S02", "Bob"));
+            students.add(new Student("S03", "Charlie"));
+            students.add(new Student("S04", "Diana"));
+            students.add(new Student("S05", "Edward"));
+        }
 
-        // // Add 5 students if the list is empty
-        // if (students.isEmpty()) {
-        //     students.add(new Student("S01", "Alice"));
-        //     students.add(new Student("S02", "Bob"));
-        //     students.add(new Student("S03", "Charlie"));
-        //     students.add(new Student("S04", "Diana"));
-        //     students.add(new Student("S05", "Edward"));
-        // }
-
-        // // Add 5 lecturers if the list is empty
-        // if (lecturers.isEmpty()) {
-        //     lecturers.add(new Lecturer("L01", "Dr. Smith"));
-        //     lecturers.add(new Lecturer("L02", "Dr. Johnson"));
-        //     lecturers.add(new Lecturer("L03", "Dr. Brown"));
-        //     lecturers.add(new Lecturer("L04", "Dr. Jones"));
-        //     lecturers.add(new Lecturer("L05", "Dr. Miller"));
-        // }
-
+        // Add 5 lecturers if the list is empty
+        if (lecturers.isEmpty()) {
+            lecturers.add(new Lecturer("L01", "Dr. Smith"));
+            lecturers.add(new Lecturer("L02", "Dr. Johnson"));
+            lecturers.add(new Lecturer("L03", "Dr. Brown"));
+            lecturers.add(new Lecturer("L04", "Dr. Jones"));
+            lecturers.add(new Lecturer("L05", "Dr. Miller"));
+        }
+        
         // Create service instances
         StudentService studentService = new StudentService(students, courses);
         LecturerService lecturerService = new LecturerService(lecturers, courses);

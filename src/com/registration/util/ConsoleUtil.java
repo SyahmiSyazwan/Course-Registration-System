@@ -1,5 +1,7 @@
 package com.registration.util;
 
+import java.util.Scanner;
+
 public class ConsoleUtil {
     public static void clearScreen() {
         try {
@@ -12,5 +14,11 @@ public class ConsoleUtil {
         } catch (Exception ex) {
             System.out.println("Error clearing the screen: " + ex.getMessage());
         }
+    }
+
+    public static void Pause(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Press any key to continue...");
+                    scanner.nextLine(); // Pause
     }
 }

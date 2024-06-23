@@ -25,7 +25,7 @@ public class StudentService {
         Student student = findStudentById(studentId);
         if (student == null) {
             System.out.println("Student not found.\n\n");
-            
+
             return;
         }
 
@@ -51,22 +51,30 @@ public class StudentService {
                     Course courseToRegister = findCourseByCode(courseCodeToRegister);
                     if (courseToRegister != null) {
                         try {
-                            student.registerCourse(courseToRegister);
-                            System.out.println("Course registered successfully.");
+                            if (!courseToRegister.isOpen()) {
+                                System.out.println("Course is closed.");
+                            } else {
+                                student.registerCourse(courseToRegister);
+                                System.out.println("Course registered successfully.");
+                                ConsoleUtil.Pause();
+                            }
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
                     } else {
                         System.out.println("Course not found.");
+                        ConsoleUtil.Pause();
                     }
                     break;
                 case 2:
                     ConsoleUtil.clearScreen();
                     student.viewAvailableCourses(courses);
+                    ConsoleUtil.Pause();
                     break;
                 case 3:
                     ConsoleUtil.clearScreen();
                     student.viewRegisteredCourses();
+                    ConsoleUtil.Pause();
                     break;
                 case 4:
                     ConsoleUtil.clearScreen();
@@ -77,8 +85,10 @@ public class StudentService {
                     if (courseToDrop != null) {
                         student.dropCourse(courseToDrop);
                         System.out.println("Course dropped successfully.");
+                        ConsoleUtil.Pause();
                     } else {
                         System.out.println("Course not found.");
+                        ConsoleUtil.Pause();
                     }
                     break;
                 case 5:
@@ -86,6 +96,7 @@ public class StudentService {
                     return;
                 default:
                     System.out.println("Invalid option. Please try again.");
+                    ConsoleUtil.Pause();
             }
         }
     }

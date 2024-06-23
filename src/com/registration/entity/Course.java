@@ -66,6 +66,10 @@ public class Course implements Serializable {
         this.isOpen = false;
     }
 
+    public void openCourse() {
+        this.isOpen = true;
+    }
+
     public void addStudent(Student student) throws Exception {
         if (students.size() >= maxStudents) {
             throw new Exception("Course is full.");
