@@ -27,7 +27,10 @@ public class AcademicOfficeService {
             System.out.println("3. Open course");
             System.out.println("4. Display created courses");
             System.out.println("5. Set course limits");
-            System.out.println("6. Exit");
+            System.out.println("6. List student on each course");
+            System.out.println("7. List lecturer teaching");
+            System.out.println("8. View course information");
+            System.out.println("9. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -102,6 +105,21 @@ public class AcademicOfficeService {
                     }
                     break;
                 case 6:
+                    ConsoleUtil.clearScreen();
+                    academicOffice.listStudentsInCourses(courses);
+                    ConsoleUtil.Pause();
+                    break;
+                case 7:
+                    ConsoleUtil.clearScreen();
+                    academicOffice.listLecturersTeachingCourses(courses);
+                    ConsoleUtil.Pause();
+                    break;
+                case 8:
+                    ConsoleUtil.clearScreen();
+                    academicOffice.displayCourseInformation(courses);
+                    ConsoleUtil.Pause();
+                    break;
+                case 9:
                     ConsoleUtil.clearScreen();
                     return;
                 default:
