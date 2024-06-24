@@ -12,6 +12,9 @@ public class Lecturer extends User {
     }
 
     public void registerToTeachCourse(Course course) throws Exception {
+        if (teachingCourses.contains(course)) {
+            throw new Exception("You are already registered to teach this course.");
+        }
         if (course.getLecturer() != null) {
             throw new Exception("Course is already assigned to another lecturer.");
         }
@@ -32,5 +35,16 @@ public class Lecturer extends User {
         for (Course course : teachingCourses) {
             System.out.println(course.getCourseCode() + ": " + course.getCourseName());
         }
+    }
+    public void viewAvailableCourses(List<Course> courses) {
+        for (Course course : courses) {
+            if (course.isOpen() && !teachingCourses.contains(course) && course.getLecturer() == null) {
+                System.out.println(course.getCourseCode() + ": " + course.getCourseName());
+            }
+        }
+    }
+
+    public Boolean checkTeachingCourseNotNull() {
+        return teachingCourses.isEmpty();
     }
 }

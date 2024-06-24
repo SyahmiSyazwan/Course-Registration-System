@@ -48,11 +48,12 @@ public class AcademicOfficeService {
                     break;
                 case 2:
                     ConsoleUtil.clearScreen();
+                    academicOffice.displayCreatedCourses(courses);
                     if (courses.size() == 0) {
                         System.out.println("No course has been created\n\n");
                         break;
                     }
-                    System.out.print("Enter course code to close: ");
+                    System.out.print("\nEnter course code to close: ");
                     String courseCodeToClose = scanner.nextLine();
                     Course courseToClose = findCourseByCode(courseCodeToClose);
                     if (courseToClose != null) {
@@ -64,11 +65,12 @@ public class AcademicOfficeService {
                     break;
                 case 3:
                     ConsoleUtil.clearScreen();
+                    academicOffice.displayCreatedCourses(courses);
                     if (courses.size() == 0) {
                         System.out.println("No course has been created\n\n");
                         break;
                     }
-                    System.out.print("Enter course code to close: ");
+                    System.out.print("\nEnter course code to open: ");
                     String courseCodeToOpen = scanner.nextLine();
                     Course courseToOpen = findCourseByCode(courseCodeToOpen);
                     if (courseToOpen != null) {

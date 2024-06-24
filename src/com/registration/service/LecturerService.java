@@ -43,6 +43,7 @@ public class LecturerService {
             switch (choice) {
                 case 1:
                     ConsoleUtil.clearScreen();
+                    lecturer.viewAvailableCourses(courses);
                     System.out.print("Enter course code to teach: ");
                     String courseCodeToTeach = scanner.nextLine();
                     Course courseToTeach = findCourseByCode(courseCodeToTeach);
@@ -50,35 +51,46 @@ public class LecturerService {
                         try {
                             lecturer.registerToTeachCourse(courseToTeach);
                             System.out.println("Course registered successfully.");
+                            ConsoleUtil.Pause();
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
+                            ConsoleUtil.Pause();
                         }
                     } else {
                         System.out.println("Course not found.");
+                        ConsoleUtil.Pause();
                     }
                     break;
                 case 2:
                     ConsoleUtil.clearScreen();
                     lecturer.viewTeachingCourses();
+                    if(lecturer.checkTeachingCourseNotNull() == true){
+                        ConsoleUtil.Pause();
+                        break;       
+                    }
                     System.out.print("Enter course code to drop: ");
                     String courseCodeToDrop = scanner.nextLine();
                     Course courseToDrop = findCourseByCode(courseCodeToDrop);
                     if (courseToDrop != null) {
                         lecturer.dropTaughtCourse(courseToDrop);
                         System.out.println("Course dropped successfully.");
+                        ConsoleUtil.Pause();
                     } else {
                         System.out.println("Course not found.");
+                        ConsoleUtil.Pause();
                     }
                     break;
                 case 3:
                     ConsoleUtil.clearScreen();
                     lecturer.viewTeachingCourses();
+                    ConsoleUtil.Pause();
                     break;
                 case 4:
                     ConsoleUtil.clearScreen();
                     return;
                 default:
                     System.out.println("Invalid option. Please try again.");
+                    ConsoleUtil.Pause();
             }
         }
     }

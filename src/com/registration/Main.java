@@ -53,6 +53,14 @@ public class Main {
             lecturers.add(new Lecturer("L04", "Dr. Jones"));
             lecturers.add(new Lecturer("L05", "Dr. Miller"));
         }
+        // Add 5 courses if the list is empty
+        if (courses.isEmpty()) {
+            courses.add(new Course("SECJ1023", "Programming Technique II", 20, 40));
+            courses.add(new Course("SECD2523", "Database", 10, 30));
+            courses.add(new Course("SECR1213", "Network Communications", 30, 40));
+            courses.add(new Course("SECJ3553", "Artificial Intelligence", 35, 40));
+            courses.add(new Course("SECV2113", "Human Computer Interaction", 30, 40));
+        }
         
         // Create service instances
         StudentService studentService = new StudentService(students, courses);
