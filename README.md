@@ -1,6 +1,29 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Welcome to course-registration-system. 
+This project revolve around 3 user type which are student, lecturer and academic office.
+
+Main functionality for each user.
+Student
+- Register courses
+- Drop courses
+- View available courses
+- View registered courses
+
+Lecturer
+- Register to teach courses
+- Drop teaching courses
+- View teaching courses
+
+Academic Office
+- Create course
+- Close course
+- Open course
+- Display created courses
+- Set course limits
+- List student on each course
+- List lecturer teaching
+- View course information
 
 ## Folder Structure
 
