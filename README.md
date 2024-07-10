@@ -25,6 +25,21 @@ Academic Office
 - List lecturer teaching
 - View course information
 
+- 5 students
+- "S01", "Alice"
+- "S02", "Bob"
+- "S03", "Charlie"
+- "S04", "Diana"
+- "S05", "Edward"
+
+
+- 5 lecturers
+- "L01", "Dr. Smith"
+- "L02", "Dr. Johnson"
+- "L03", "Dr. Brown"
+- "L04", "Dr. Jones"
+- "L05", "Dr. Miller"
+
 ## Folder Structure
 
 The workspace contains two folders by default, where:
